@@ -1,0 +1,52 @@
+config_version: sort_arch_core_native160_negmask_adamw_v1
+config_kind: model
+data_config: ../../data/small.yaml
+training_config: ../../../configs/train/adamw_negmask.yaml
+model:
+  name: sort
+  class_path: models.sort.model:SORTModel
+  feature: v1
+  features: {use: all}
+  embedding:
+    default_dim: 32
+    namespace_overrides: {"45040": 256}
+  params:
+    history:
+      group: history_group_1
+      action_slot: 45040
+      timestamp_slot: 45042
+      time_gap_slot: 45073
+      padding_side: left
+      direct_validation: shapes_only
+    query_groups:
+      query_semantic_entity: [3001, 3086, 3087, 3088, 3089, 3090, 3091, 3000, 3002, 3096, 3100]
+      query_statistics: [3046, 3062, 3063, 3069, 3070, 3071, 3072, 3073, 3074, 3075, 3077, 3080]
+    candidate_slots: [5000, 5004, 5005, 5006, 5022, 5023, 5024, 5031, 5032, 5033, 5034, 5036, 5052, 5056, 5057, 5060, 5061, 5077, 5078, 5271, 5053, 8063, 5054, 5059, 9011, 11000, 8037, 5075, 8085, 9028, 9029, 9044, 9048, 9049, 9072, 9073, 5268, 5269, 5270, 5272, 5273, 5274, 5275, 5021, 5055, 5058, 5062, 9007, 9009, 9010, 9016, 7090, 7091, 7092, 8000, 8001, 8002, 8003, 8004, 8005, 8007, 8008, 8009, 8010, 8023, 8034, 8035, 8039, 8056, 8057, 8058, 8059, 8060, 8061, 5073, 5085, 5086, 5087, 5088, 7097, 7098, 7099, 7100, 7102, 9045, 9046, 8115, 8127, 8131, 8132, 6270, 6287, 6288, 6289, 8196, 8192, 8193, 8195, 6347, 43051, 43052, 43053, 43054, 43055, 43056, 43057, 43058]
+    model_dim: 256
+    num_layers: 4
+    num_heads: 4
+    local_window: 256
+    history_keep_per_layer: [200, 174, 148, 123]
+    expert_hidden_dim: 320
+    num_shared_experts: 1
+    num_routed_experts: 8
+    routed_top_k: 1
+    dropout: 0.0
+    norm_eps: 1.0e-6
+    qk_norm_eps: 1.0e-6
+    rope_base: 10000.0
+    router_aux_loss_weight: 0.01
+    candidate_isolation: true
+    task_names: [click, atc, order]
+    head_hidden_dim: 256
+    head_dropout: 0.0
+    task_weights: {click: 1.0, atc: 1.0, order: 1.0}
+    torchrec:
+      mode: dmp
+      sparse_optimizer: {name: exact_adagrad, lr: 0.01, eps: 1.0e-8, weight_decay: 0.0}
+      storage:
+        default_compute_kernel: fused
+        default_sharding_types: [table_wise]
+        capacity_rules:
+          - min_vocab_size_exclusive: 100000
+            sharding_types: [row_wise]

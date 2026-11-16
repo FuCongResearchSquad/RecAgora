@@ -1,0 +1,2733 @@
+config_version: shopee_search_feature_v1_dataset_small
+config_kind: dataset
+version: v1
+variant: small
+physical_contract:
+  partition_field: dt
+  partitions:
+  - DAY01
+  - DAY02
+  - DAY03
+  - DAY04
+  - DAY05
+  - DAY06
+  - DAY07
+  - DAY08
+  candidate_count: 24
+  columns:
+  - name: request_id
+    arrow_type: int64
+    dtype: int64
+    shape:
+    - batch
+  - name: click
+    arrow_type: 'list<element: int32>'
+    dtype: int32
+    shape:
+    - batch
+    - candidate
+    candidate_count: 24
+  - name: atc
+    arrow_type: 'list<element: int32>'
+    dtype: int32
+    shape:
+    - batch
+    - candidate
+    candidate_count: 24
+  - name: order
+    arrow_type: 'list<element: int32>'
+    dtype: int32
+    shape:
+    - batch
+    - candidate
+    candidate_count: 24
+  - name: negative_impression
+    arrow_type: 'list<element: int32>'
+    dtype: int32
+    shape:
+    - batch
+    - candidate
+    candidate_count: 24
+  - name: negative_non_impression
+    arrow_type: 'list<element: int32>'
+    dtype: int32
+    shape:
+    - batch
+    - candidate
+    candidate_count: 24
+  - name: negative_from_rank
+    arrow_type: 'list<element: int32>'
+    dtype: int32
+    shape:
+    - batch
+    - candidate
+    candidate_count: 24
+  - name: negative_from_recall
+    arrow_type: 'list<element: int32>'
+    dtype: int32
+    shape:
+    - batch
+    - candidate
+    candidate_count: 24
+  - name: negative_from_random
+    arrow_type: 'list<element: int32>'
+    dtype: int32
+    shape:
+    - batch
+    - candidate
+    candidate_count: 24
+  - name: slot_5000
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5004
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5005
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5006
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5022
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5023
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5024
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5031
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5032
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5033
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5034
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5036
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5052
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5056
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5057
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5060
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5061
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5077
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5078
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5271
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5053
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_8063
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5054
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5059
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_9011
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_11000
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_8037
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5075
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_8085
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_9028
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_9029
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_9044
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_9048
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_9049
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_9072
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_9073
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5268
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5269
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5270
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5272
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5273
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5274
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5275
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5021
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5055
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5058
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5062
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_9007
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_9009
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_9010
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_9016
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_7090
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_7091
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_7092
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_8000
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_8001
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_8002
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_8003
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_8004
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_8005
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_8007
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_8008
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_8009
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_8010
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_8023
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_8034
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_8035
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_8039
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_8056
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_8057
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_8058
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_8059
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_8060
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_8061
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5073
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5085
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5086
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5087
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_5088
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_7097
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_7098
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_7099
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_7100
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_7102
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_9045
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_9046
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_8115
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_8127
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_8131
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_8132
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_6270
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_6287
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_6288
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_6289
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_8196
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_8192
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_8193
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_8195
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_6347
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_43051
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_43052
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_43053
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_43054
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_43055
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_43056
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_43057
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_43058
+    arrow_type: 'list<element: list<element: int64>>'
+    dtype: int64
+  - name: slot_45041
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_45043
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_45044
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_45045
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_45046
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_45047
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_45048
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_45049
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_45051
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_45075
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_45054
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_45055
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_45056
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_45057
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_45058
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_45059
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_45060
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_45061
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_45062
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_45063
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_45064
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_45066
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_45067
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_45068
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_45069
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_45070
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_45072
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_45040
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_45073
+    arrow_type: 'list<element: double>'
+    dtype: float32
+  - name: slot_3001
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_3086
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_3046
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_3062
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_3063
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_3069
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_3070
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_3071
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_3072
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_3073
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_3074
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_3075
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_3077
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_3080
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_3087
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_3088
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_3089
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_3090
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_3091
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_3000
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_3002
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_3096
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_3100
+    arrow_type: 'list<element: int64>'
+    dtype: int64
+  - name: slot_45042
+    arrow_type: 'list<element: double>'
+    dtype: float32
+  history_groups:
+    history_group_1:
+      length_anchor_slot_id: 45041
+      max_length: 200
+      event_order: oldest_to_newest
+      truncate_side: tail
+      categorical_storage_layout: flat_list_ragged
+      direct_storage_layout: flat_list
+      direct_padding_side: right
+sparse_id_contract:
+  type: dense_map
+  mapping_version: v3.5
+  stats_version: feature_v3_5
+  padding_id: 0
+  oov_id: 1
+  unseen_payload_policy: oov
+  namespaces:
+    '5000':
+      vocab_size: 41411122
+    '5052':
+      vocab_size: 679903
+    '3002':
+      vocab_size: 626293
+    '5053':
+      vocab_size: 339132
+    '5060':
+      vocab_size: 102
+    '5004':
+      vocab_size: 41
+    '5005':
+      vocab_size: 48
+    '5006':
+      vocab_size: 56
+    '5022':
+      vocab_size: 62
+    '5023':
+      vocab_size: 84
+    '5024':
+      vocab_size: 79
+    '5031':
+      vocab_size: 104
+    '5032':
+      vocab_size: 104
+    '5033':
+      vocab_size: 104
+    '5034':
+      vocab_size: 104
+    '5036':
+      vocab_size: 104
+    '5054':
+      vocab_size: 1312
+    '5055':
+      vocab_size: 1698
+    '5056':
+      vocab_size: 33
+    '5057':
+      vocab_size: 279
+    '5077':
+      vocab_size: 46522
+    '5268':
+      vocab_size: 83
+    '5269':
+      vocab_size: 93
+    '5270':
+      vocab_size: 103
+    '5271':
+      vocab_size: 81
+    '5030':
+      vocab_size: 103
+    '5090':
+      vocab_size: 86
+    '5240':
+      vocab_size: 103
+    '5358':
+      vocab_size: 33
+    '5061':
+      vocab_size: 103
+    '3000':
+      vocab_size: 214046
+    '3001':
+      vocab_size: 197014
+    '3046':
+      vocab_size: 98
+    '3062':
+      vocab_size: 71
+    '3063':
+      vocab_size: 64
+    '3069':
+      vocab_size: 95
+    '3070':
+      vocab_size: 93
+    '3071':
+      vocab_size: 91
+    '3072':
+      vocab_size: 87
+    '3073':
+      vocab_size: 94
+    '3074':
+      vocab_size: 94
+    '3075':
+      vocab_size: 92
+    '3077':
+      vocab_size: 103
+    '3080':
+      vocab_size: 102
+    '3086':
+      vocab_size: 1299
+    '3091':
+      vocab_size: 123485
+    '5021':
+      vocab_size: 104
+    '5058':
+      vocab_size: 1177
+    '5062':
+      vocab_size: 103
+    '5085':
+      vocab_size: 194
+    '5086':
+      vocab_size: 203
+    '5087':
+      vocab_size: 203
+    '5088':
+      vocab_size: 203
+    '5272':
+      vocab_size: 36024
+    '5273':
+      vocab_size: 495
+    '5274':
+      vocab_size: 16256
+    '5275':
+      vocab_size: 183401
+    '6270':
+      vocab_size: 102
+    '6287':
+      vocab_size: 1331
+    '6288':
+      vocab_size: 1775
+    '6289':
+      vocab_size: 1732
+    '6347':
+      vocab_size: 104
+    '7090':
+      vocab_size: 10909
+    '7091':
+      vocab_size: 10203
+    '7092':
+      vocab_size: 3874
+    '7097':
+      vocab_size: 86
+    '7098':
+      vocab_size: 20544
+    '7099':
+      vocab_size: 33
+    '7100':
+      vocab_size: 278
+    '7102':
+      vocab_size: 31342
+    '8000':
+      vocab_size: 76
+    '8001':
+      vocab_size: 92
+    '8002':
+      vocab_size: 94
+    '8003':
+      vocab_size: 87
+    '8004':
+      vocab_size: 79
+    '8005':
+      vocab_size: 98
+    '8007':
+      vocab_size: 35
+    '8008':
+      vocab_size: 89
+    '8009':
+      vocab_size: 42
+    '8010':
+      vocab_size: 2763
+    '8023':
+      vocab_size: 34
+    '8056':
+      vocab_size: 52
+    '8057':
+      vocab_size: 38
+    '8058':
+      vocab_size: 26
+    '8059':
+      vocab_size: 96
+    '8060':
+      vocab_size: 94
+    '8061':
+      vocab_size: 92
+    '8063':
+      vocab_size: 1456099
+    '8085':
+      vocab_size: 14
+    '8192':
+      vocab_size: 12
+    '8193':
+      vocab_size: 12
+    '8195':
+      vocab_size: 12
+    '8196':
+      vocab_size: 20
+    '43051':
+      vocab_size: 46
+    '43052':
+      vocab_size: 52
+    '43053':
+      vocab_size: 52
+    '43054':
+      vocab_size: 43
+    '43055':
+      vocab_size: 57
+    '43056':
+      vocab_size: 52
+    '43057':
+      vocab_size: 57
+    '43058':
+      vocab_size: 57
+    '45040':
+      vocab_size: 5
+    '21055':
+      vocab_size: 103
+    '5078':
+      vocab_size: 1299
+    '9011':
+      vocab_size: 35
+    '11000':
+      vocab_size: 17
+    '8037':
+      vocab_size: 7
+    '5075':
+      vocab_size: 1693
+    '9028':
+      vocab_size: 3
+    '9029':
+      vocab_size: 32
+    '9044':
+      vocab_size: 1879353
+    '9048':
+      vocab_size: 5804486
+    '9049':
+      vocab_size: 409627
+    '9072':
+      vocab_size: 115952
+    '9073':
+      vocab_size: 12
+    '9007':
+      vocab_size: 103
+    '9009':
+      vocab_size: 93
+    '9010':
+      vocab_size: 52
+    '9016':
+      vocab_size: 103
+    '8034':
+      vocab_size: 7
+    '8035':
+      vocab_size: 8
+    '8039':
+      vocab_size: 5
+    '5073':
+      vocab_size: 622775
+    '9045':
+      vocab_size: 631161
+    '9046':
+      vocab_size: 1446032
+    '8131':
+      vocab_size: 6
+    '8132':
+      vocab_size: 14
+    '3087':
+      vocab_size: 58248
+    '3088':
+      vocab_size: 5632085
+    '3089':
+      vocab_size: 1175409
+    '3090':
+      vocab_size: 240207
+feature_bindings:
+- slot_id: 5000
+  column: slot_5000
+  source_path: item_slots.5000
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5000
+- slot_id: 5004
+  column: slot_5004
+  source_path: item_slots.5004
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5004
+- slot_id: 5005
+  column: slot_5005
+  source_path: item_slots.5005
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5005
+- slot_id: 5006
+  column: slot_5006
+  source_path: item_slots.5006
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5006
+- slot_id: 5022
+  column: slot_5022
+  source_path: item_slots.5022
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5022
+- slot_id: 5023
+  column: slot_5023
+  source_path: item_slots.5023
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5023
+- slot_id: 5024
+  column: slot_5024
+  source_path: item_slots.5024
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5024
+- slot_id: 5031
+  column: slot_5031
+  source_path: item_slots.5031
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5031
+- slot_id: 5032
+  column: slot_5032
+  source_path: item_slots.5032
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5032
+- slot_id: 5033
+  column: slot_5033
+  source_path: item_slots.5033
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5033
+- slot_id: 5034
+  column: slot_5034
+  source_path: item_slots.5034
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5034
+- slot_id: 5036
+  column: slot_5036
+  source_path: item_slots.5036
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5036
+- slot_id: 5052
+  column: slot_5052
+  source_path: item_slots.5052
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5052
+- slot_id: 5056
+  column: slot_5056
+  source_path: item_slots.5056
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5056
+- slot_id: 5057
+  column: slot_5057
+  source_path: item_slots.5057
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5057
+- slot_id: 5060
+  column: slot_5060
+  source_path: item_slots.5060
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5060
+- slot_id: 5061
+  column: slot_5061
+  source_path: item_slots.5061
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5061
+- slot_id: 5077
+  column: slot_5077
+  source_path: item_slots.5077
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5077
+- slot_id: 5078
+  column: slot_5078
+  source_path: item_slots.5078
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5078
+- slot_id: 5271
+  column: slot_5271
+  source_path: item_slots.5271
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5271
+- slot_id: 5053
+  column: slot_5053
+  source_path: item_slots.5053
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5053
+- slot_id: 8063
+  column: slot_8063
+  source_path: item_slots.8063
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_sequence
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 8063
+- slot_id: 5054
+  column: slot_5054
+  source_path: item_slots.5054
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5054
+- slot_id: 5059
+  column: slot_5059
+  source_path: item_slots.5059
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_sequence
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 3002
+- slot_id: 9011
+  column: slot_9011
+  source_path: item_slots.9011
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 9011
+- slot_id: 11000
+  column: slot_11000
+  source_path: item_slots.11000
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_sequence
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 11000
+- slot_id: 8037
+  column: slot_8037
+  source_path: item_slots.8037
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 8037
+- slot_id: 5075
+  column: slot_5075
+  source_path: item_slots.5075
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5075
+- slot_id: 8085
+  column: slot_8085
+  source_path: item_slots.8085
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_sequence
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 8085
+- slot_id: 9028
+  column: slot_9028
+  source_path: item_slots.9028
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_sequence
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 9028
+- slot_id: 9029
+  column: slot_9029
+  source_path: item_slots.9029
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_sequence
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 9029
+- slot_id: 9044
+  column: slot_9044
+  source_path: item_slots.9044
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_sequence
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 9044
+- slot_id: 9048
+  column: slot_9048
+  source_path: item_slots.9048
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_sequence
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 9048
+- slot_id: 9049
+  column: slot_9049
+  source_path: item_slots.9049
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_sequence
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 9049
+- slot_id: 9072
+  column: slot_9072
+  source_path: item_slots.9072
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_sequence
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 9072
+- slot_id: 9073
+  column: slot_9073
+  source_path: item_slots.9073
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_sequence
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 9073
+- slot_id: 5268
+  column: slot_5268
+  source_path: item_slots.5268
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5268
+- slot_id: 5269
+  column: slot_5269
+  source_path: item_slots.5269
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5269
+- slot_id: 5270
+  column: slot_5270
+  source_path: item_slots.5270
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5270
+- slot_id: 5272
+  column: slot_5272
+  source_path: item_slots.5272
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_sequence
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5272
+- slot_id: 5273
+  column: slot_5273
+  source_path: item_slots.5273
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_sequence
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5273
+- slot_id: 5274
+  column: slot_5274
+  source_path: item_slots.5274
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_sequence
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5274
+- slot_id: 5275
+  column: slot_5275
+  source_path: item_slots.5275
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_sequence
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5275
+- slot_id: 5021
+  column: slot_5021
+  source_path: item_slots.5021
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5021
+- slot_id: 5055
+  column: slot_5055
+  source_path: item_slots.5055
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5055
+- slot_id: 5058
+  column: slot_5058
+  source_path: item_slots.5058
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5058
+- slot_id: 5062
+  column: slot_5062
+  source_path: item_slots.5062
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5062
+- slot_id: 9007
+  column: slot_9007
+  source_path: item_slots.9007
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 9007
+- slot_id: 9009
+  column: slot_9009
+  source_path: item_slots.9009
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 9009
+- slot_id: 9010
+  column: slot_9010
+  source_path: item_slots.9010
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 9010
+- slot_id: 9016
+  column: slot_9016
+  source_path: item_slots.9016
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 9016
+- slot_id: 7090
+  column: slot_7090
+  source_path: item_slots.7090
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 7090
+- slot_id: 7091
+  column: slot_7091
+  source_path: item_slots.7091
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 7091
+- slot_id: 7092
+  column: slot_7092
+  source_path: item_slots.7092
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 7092
+- slot_id: 8000
+  column: slot_8000
+  source_path: item_slots.8000
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 8000
+- slot_id: 8001
+  column: slot_8001
+  source_path: item_slots.8001
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 8001
+- slot_id: 8002
+  column: slot_8002
+  source_path: item_slots.8002
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 8002
+- slot_id: 8003
+  column: slot_8003
+  source_path: item_slots.8003
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 8003
+- slot_id: 8004
+  column: slot_8004
+  source_path: item_slots.8004
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 8004
+- slot_id: 8005
+  column: slot_8005
+  source_path: item_slots.8005
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 8005
+- slot_id: 8007
+  column: slot_8007
+  source_path: item_slots.8007
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 8007
+- slot_id: 8008
+  column: slot_8008
+  source_path: item_slots.8008
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 8008
+- slot_id: 8009
+  column: slot_8009
+  source_path: item_slots.8009
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 8009
+- slot_id: 8010
+  column: slot_8010
+  source_path: item_slots.8010
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 8010
+- slot_id: 8023
+  column: slot_8023
+  source_path: item_slots.8023
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 8023
+- slot_id: 8034
+  column: slot_8034
+  source_path: item_slots.8034
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 8034
+- slot_id: 8035
+  column: slot_8035
+  source_path: item_slots.8035
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 8035
+- slot_id: 8039
+  column: slot_8039
+  source_path: item_slots.8039
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 8039
+- slot_id: 8056
+  column: slot_8056
+  source_path: item_slots.8056
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 8056
+- slot_id: 8057
+  column: slot_8057
+  source_path: item_slots.8057
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 8057
+- slot_id: 8058
+  column: slot_8058
+  source_path: item_slots.8058
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 8058
+- slot_id: 8059
+  column: slot_8059
+  source_path: item_slots.8059
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 8059
+- slot_id: 8060
+  column: slot_8060
+  source_path: item_slots.8060
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 8060
+- slot_id: 8061
+  column: slot_8061
+  source_path: item_slots.8061
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 8061
+- slot_id: 5073
+  column: slot_5073
+  source_path: item_slots.5073
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_sequence
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5073
+- slot_id: 5085
+  column: slot_5085
+  source_path: item_slots.5085
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5085
+- slot_id: 5086
+  column: slot_5086
+  source_path: item_slots.5086
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5086
+- slot_id: 5087
+  column: slot_5087
+  source_path: item_slots.5087
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5087
+- slot_id: 5088
+  column: slot_5088
+  source_path: item_slots.5088
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5088
+- slot_id: 7097
+  column: slot_7097
+  source_path: item_slots.7097
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_sequence
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 7097
+- slot_id: 7098
+  column: slot_7098
+  source_path: item_slots.7098
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_sequence
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 7098
+- slot_id: 7099
+  column: slot_7099
+  source_path: item_slots.7099
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 7099
+- slot_id: 7100
+  column: slot_7100
+  source_path: item_slots.7100
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 7100
+- slot_id: 7102
+  column: slot_7102
+  source_path: item_slots.7102
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 7102
+- slot_id: 9045
+  column: slot_9045
+  source_path: item_slots.9045
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_sequence
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 9045
+- slot_id: 9046
+  column: slot_9046
+  source_path: item_slots.9046
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_sequence
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 9046
+- slot_id: 8115
+  column: slot_8115
+  source_path: item_slots.8115
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_sequence
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5000
+- slot_id: 8127
+  column: slot_8127
+  source_path: item_slots.8127
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_sequence
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 5000
+- slot_id: 8131
+  column: slot_8131
+  source_path: item_slots.8131
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 8131
+- slot_id: 8132
+  column: slot_8132
+  source_path: item_slots.8132
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_sequence
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 8132
+- slot_id: 6270
+  column: slot_6270
+  source_path: item_slots.6270
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 6270
+- slot_id: 6287
+  column: slot_6287
+  source_path: item_slots.6287
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 6287
+- slot_id: 6288
+  column: slot_6288
+  source_path: item_slots.6288
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 6288
+- slot_id: 6289
+  column: slot_6289
+  source_path: item_slots.6289
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 6289
+- slot_id: 8196
+  column: slot_8196
+  source_path: item_slots.8196
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 8196
+- slot_id: 8192
+  column: slot_8192
+  source_path: item_slots.8192
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 8192
+- slot_id: 8193
+  column: slot_8193
+  source_path: item_slots.8193
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 8193
+- slot_id: 8195
+  column: slot_8195
+  source_path: item_slots.8195
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 8195
+- slot_id: 6347
+  column: slot_6347
+  source_path: item_slots.6347
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 6347
+- slot_id: 43051
+  column: slot_43051
+  source_path: item_slots.43051
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 43051
+- slot_id: 43052
+  column: slot_43052
+  source_path: item_slots.43052
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 43052
+- slot_id: 43053
+  column: slot_43053
+  source_path: item_slots.43053
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 43053
+- slot_id: 43054
+  column: slot_43054
+  source_path: item_slots.43054
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 43054
+- slot_id: 43055
+  column: slot_43055
+  source_path: item_slots.43055
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 43055
+- slot_id: 43056
+  column: slot_43056
+  source_path: item_slots.43056
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 43056
+- slot_id: 43057
+  column: slot_43057
+  source_path: item_slots.43057
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 43057
+- slot_id: 43058
+  column: slot_43058
+  source_path: item_slots.43058
+  source_level: item
+  arrow_type: 'list<element: list<element: int64>>'
+  storage_layout: nested_list
+  dtype: int64
+  parse:
+    kind: item_scalar
+    missing_policy: fail_fast
+    require_outer_len: list_len
+  namespace_id: 43058
+- slot_id: 45041
+  column: slot_45041
+  source_path: user_slots.45041
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 5000
+  history_group: history_group_1
+- slot_id: 45043
+  column: slot_45043
+  source_path: user_slots.45043
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 5052
+  history_group: history_group_1
+- slot_id: 45044
+  column: slot_45044
+  source_path: user_slots.45044
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 5077
+  history_group: history_group_1
+- slot_id: 45045
+  column: slot_45045
+  source_path: user_slots.45045
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 5090
+  history_group: history_group_1
+- slot_id: 45046
+  column: slot_45046
+  source_path: user_slots.45046
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 5240
+  history_group: history_group_1
+- slot_id: 45047
+  column: slot_45047
+  source_path: user_slots.45047
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 5055
+  history_group: history_group_1
+- slot_id: 45048
+  column: slot_45048
+  source_path: user_slots.45048
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 5056
+  history_group: history_group_1
+- slot_id: 45049
+  column: slot_45049
+  source_path: user_slots.45049
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 5057
+  history_group: history_group_1
+- slot_id: 45051
+  column: slot_45051
+  source_path: user_slots.45051
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 5060
+  history_group: history_group_1
+- slot_id: 45075
+  column: slot_45075
+  source_path: user_slots.45075
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 5004
+  history_group: history_group_1
+- slot_id: 45054
+  column: slot_45054
+  source_path: user_slots.45054
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 5005
+  history_group: history_group_1
+- slot_id: 45055
+  column: slot_45055
+  source_path: user_slots.45055
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 5006
+  history_group: history_group_1
+- slot_id: 45056
+  column: slot_45056
+  source_path: user_slots.45056
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 5022
+  history_group: history_group_1
+- slot_id: 45057
+  column: slot_45057
+  source_path: user_slots.45057
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 5031
+  history_group: history_group_1
+- slot_id: 45058
+  column: slot_45058
+  source_path: user_slots.45058
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 5034
+  history_group: history_group_1
+- slot_id: 45059
+  column: slot_45059
+  source_path: user_slots.45059
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 5023
+  history_group: history_group_1
+- slot_id: 45060
+  column: slot_45060
+  source_path: user_slots.45060
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 5032
+  history_group: history_group_1
+- slot_id: 45061
+  column: slot_45061
+  source_path: user_slots.45061
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 5030
+  history_group: history_group_1
+- slot_id: 45062
+  column: slot_45062
+  source_path: user_slots.45062
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 5024
+  history_group: history_group_1
+- slot_id: 45063
+  column: slot_45063
+  source_path: user_slots.45063
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 5033
+  history_group: history_group_1
+- slot_id: 45064
+  column: slot_45064
+  source_path: user_slots.45064
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 5036
+  history_group: history_group_1
+- slot_id: 45066
+  column: slot_45066
+  source_path: user_slots.45066
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 5358
+  history_group: history_group_1
+- slot_id: 45067
+  column: slot_45067
+  source_path: user_slots.45067
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 5268
+  history_group: history_group_1
+- slot_id: 45068
+  column: slot_45068
+  source_path: user_slots.45068
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 5271
+  history_group: history_group_1
+- slot_id: 45069
+  column: slot_45069
+  source_path: user_slots.45069
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 5269
+  history_group: history_group_1
+- slot_id: 45070
+  column: slot_45070
+  source_path: user_slots.45070
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 5270
+  history_group: history_group_1
+- slot_id: 45072
+  column: slot_45072
+  source_path: user_slots.45072
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 21055
+  history_group: history_group_1
+- slot_id: 45040
+  column: slot_45040
+  source_path: user_slots.45040
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 45040
+  history_group: history_group_1
+- slot_id: 45073
+  column: slot_45073
+  source_path: user_slots.45073
+  source_level: request
+  arrow_type: 'list<element: double>'
+  storage_layout: flat_list
+  dtype: float32
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  history_group: history_group_1
+- slot_id: 3001
+  column: slot_3001
+  source_path: context_user_slots.3001
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_scalar
+    missing_policy: fail_fast
+  namespace_id: 3001
+- slot_id: 3086
+  column: slot_3086
+  source_path: user_slots.3086
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 3086
+- slot_id: 3046
+  column: slot_3046
+  source_path: context_user_slots.3046
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_scalar
+    missing_policy: fail_fast
+  namespace_id: 3046
+- slot_id: 3062
+  column: slot_3062
+  source_path: context_user_slots.3062
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_scalar
+    missing_policy: fail_fast
+  namespace_id: 3062
+- slot_id: 3063
+  column: slot_3063
+  source_path: context_user_slots.3063
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_scalar
+    missing_policy: fail_fast
+  namespace_id: 3063
+- slot_id: 3069
+  column: slot_3069
+  source_path: context_user_slots.3069
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_scalar
+    missing_policy: fail_fast
+  namespace_id: 3069
+- slot_id: 3070
+  column: slot_3070
+  source_path: context_user_slots.3070
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_scalar
+    missing_policy: fail_fast
+  namespace_id: 3070
+- slot_id: 3071
+  column: slot_3071
+  source_path: context_user_slots.3071
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_scalar
+    missing_policy: fail_fast
+  namespace_id: 3071
+- slot_id: 3072
+  column: slot_3072
+  source_path: context_user_slots.3072
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_scalar
+    missing_policy: fail_fast
+  namespace_id: 3072
+- slot_id: 3073
+  column: slot_3073
+  source_path: context_user_slots.3073
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_scalar
+    missing_policy: fail_fast
+  namespace_id: 3073
+- slot_id: 3074
+  column: slot_3074
+  source_path: context_user_slots.3074
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_scalar
+    missing_policy: fail_fast
+  namespace_id: 3074
+- slot_id: 3075
+  column: slot_3075
+  source_path: context_user_slots.3075
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_scalar
+    missing_policy: fail_fast
+  namespace_id: 3075
+- slot_id: 3077
+  column: slot_3077
+  source_path: context_user_slots.3077
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_scalar
+    missing_policy: fail_fast
+  namespace_id: 3077
+- slot_id: 3080
+  column: slot_3080
+  source_path: context_user_slots.3080
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_scalar
+    missing_policy: fail_fast
+  namespace_id: 3080
+- slot_id: 3087
+  column: slot_3087
+  source_path: user_slots.3087
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 3087
+- slot_id: 3088
+  column: slot_3088
+  source_path: user_slots.3088
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 3088
+- slot_id: 3089
+  column: slot_3089
+  source_path: user_slots.3089
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 3089
+- slot_id: 3090
+  column: slot_3090
+  source_path: user_slots.3090
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 3090
+- slot_id: 3091
+  column: slot_3091
+  source_path: user_slots.3091
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 3091
+- slot_id: 3000
+  column: slot_3000
+  source_path: context_user_slots.3000
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_scalar
+    missing_policy: fail_fast
+  namespace_id: 3000
+- slot_id: 3002
+  column: slot_3002
+  source_path: user_slots.3002
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 3002
+- slot_id: 3096
+  column: slot_3096
+  source_path: user_slots.3096
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 5052
+- slot_id: 3100
+  column: slot_3100
+  source_path: user_slots.3100
+  source_level: request
+  arrow_type: 'list<element: int64>'
+  storage_layout: flat_list
+  dtype: int64
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  namespace_id: 5053
+- slot_id: 45042
+  column: slot_45042
+  source_path: user_slots.45042
+  source_level: request
+  arrow_type: 'list<element: double>'
+  storage_layout: flat_list
+  dtype: float32
+  parse:
+    kind: request_sequence
+    missing_policy: fail_fast
+  history_group: history_group_1

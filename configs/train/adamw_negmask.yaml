@@ -1,0 +1,69 @@
+config_version: training_negmask_adamw_lr1e4_v1
+config_kind: training
+train:
+  batch_size: 128
+  num_workers: 8
+  pin_memory: true
+  persistent_workers: true
+  lr: 0.0001
+  optimizer:
+    name: adamw
+    weight_decay: 0.01
+    params:
+      betas: [0.9, 0.999]
+      eps: 1.0e-8
+  grad_clip_norm: 1.0
+  epochs: 1
+  max_steps: null
+  seed: 2026
+  device: cuda
+  amp: false
+  # mask负样本；[] 表示不进行mask，eval不继承。
+  # negative_impression	  	  曝光 负样本标记
+  # negative_non_impression	  未曝光 负样本标记
+  # negative_from_rank	      rank来源 负样本标记
+  # negative_from_recall	    recall来源 负样本标记
+  # negative_from_random	    random来源 负样本标记
+  negative_mask_fields: [negative_non_impression, negative_from_rank, negative_from_recall, negative_from_random]
+  output_dir: ../results/onetrans/negmask_adamw
+  checkpoint_every_steps: 5000
+  checkpoint_max_to_keep: 2
+  progress_every_steps: 10
+  global_metrics:
+    enabled: true
+    every_steps: 10
+  rank_diagnostics:
+    enabled: false
+    every_steps: 500
+  timing_trace:
+    enabled: false
+    rank: 0
+    every_steps: 100
+    distributed_sync: false
+    resolve_delay_steps: 2
+  communication_trace:
+    enabled: false
+    rank: 0
+    every_steps: 500
+    active_steps: 1
+    distributed_sync: false
+    export_chrome_trace: false
+  categorical_prepack_preserve_sources: []
+  resume_from: null
+  resume:
+    world_size_policy: strict
+  init_from: null
+eval:
+  # 独立设置，默认全量评估；checkpoint/output 默认沿用 train.output_dir。
+  negative_mask_fields: [negative_non_impression, negative_from_rank, negative_from_recall, negative_from_random]
+  checkpoint_path: null
+  output_dir: null
+  paths: null
+  batch_size: 128
+  num_workers: 8
+  pin_memory: true
+  persistent_workers: true
+  device: cuda
+  amp: false
+  max_batches: null
+  global_auc_workers: null

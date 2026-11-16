@@ -1,0 +1,61 @@
+config_version: din_22_fieldwise_softmax_public_v2_mlp_head_native160_action_adamw
+config_kind: model
+data_config: ../../data/small.yaml
+training_config: ../../../configs/train/adamw.yaml
+model:
+  name: din
+  class_path: models.din.model:DINModel
+  feature: v1
+  features:
+    use: all
+    exclude: [45042, 45073]
+  embedding:
+    default_dim: 32
+    namespace_overrides:
+      "45040": 256
+  params:
+    attention_pairs:
+    - {target: 5000, history: 45041}
+    - {target: 5052, history: 45043}
+    - {target: 5077, history: 45044}
+    - {target: 5055, history: 45047}
+    - {target: 5056, history: 45048}
+    - {target: 5057, history: 45049}
+    - {target: 5060, history: 45051}
+    - {target: 5004, history: 45075}
+    - {target: 5005, history: 45054}
+    - {target: 5006, history: 45055}
+    - {target: 5022, history: 45056}
+    - {target: 5031, history: 45057}
+    - {target: 5034, history: 45058}
+    - {target: 5023, history: 45059}
+    - {target: 5032, history: 45060}
+    - {target: 5024, history: 45062}
+    - {target: 5033, history: 45063}
+    - {target: 5036, history: 45064}
+    - {target: 5268, history: 45067}
+    - {target: 5271, history: 45068}
+    - {target: 5269, history: 45069}
+    - {target: 5270, history: 45070}
+    unpaired_history: [45045, 45046, 45061, 45066, 45072, 45040]
+    attention_hidden_units: [80, 40]
+    deep_hidden_units: [256, 128, 64]
+    attention_granularity: fieldwise
+    weight_normalization: softmax
+    candidate_chunk_size: 1
+    head_type: mlp
+    head_hidden_dim: 64
+    head_dropout: 0.0
+    history_group_name: history_group_1
+    history_padding_side: right
+    output_label_names: [click, atc, order]
+    loss_weights: {click: 1.0, atc: 1.0, order: 1.0}
+    torchrec:
+      mode: dmp
+      sparse_optimizer: {name: exact_adagrad, lr: 0.01, eps: 1.0e-8, weight_decay: 0.0}
+      storage:
+        default_compute_kernel: fused
+        default_sharding_types: [table_wise]
+        capacity_rules:
+          - min_vocab_size_exclusive: 100000
+            sharding_types: [row_wise]

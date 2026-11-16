@@ -1,0 +1,37 @@
+config_version: dcnv2_lr_parallel_public_v2_mlp_head_native160_negmask_adamw
+config_kind: model
+data_config: ../../data/small.yaml
+training_config: ../../../configs/train/adamw_negmask.yaml
+model:
+  name: dcnv2
+  class_path: models.dcn.model:DCNModel
+  feature: v1
+  features:
+    use: all
+    exclude: [45042, 45073]
+  embedding:
+    default_dim: 32
+    namespace_overrides:
+      "45040": 256
+  params:
+    cross: {type: low_rank, layers: 3, rank: 64}
+    fusion: parallel
+    deep_hidden_units: [512, 256, 128]
+    activation: relu
+    dropout: 0.0
+    head_type: mlp
+    head_hidden_dim: 128
+    head_dropout: 0.0
+    history_group_name: history_group_1
+    history_reduction: masked_mean
+    output_label_names: [click, atc, order]
+    loss_weights: {click: 1.0, atc: 1.0, order: 1.0}
+    torchrec:
+      mode: dmp
+      sparse_optimizer: {name: exact_adagrad, lr: 0.01, eps: 1.0e-8, weight_decay: 0.0}
+      storage:
+        default_compute_kernel: fused
+        default_sharding_types: [table_wise]
+        capacity_rules:
+          - min_vocab_size_exclusive: 100000
+            sharding_types: [row_wise]

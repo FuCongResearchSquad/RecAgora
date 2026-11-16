@@ -1,0 +1,46 @@
+config_version: mtgr_v1_small_negmask_adamw
+config_kind: model
+data_config: ../../data/small.yaml
+training_config: ../../../configs/train/adamw_negmask.yaml
+model:
+  name: mtgr
+  class_path: models.mtgr.model:MTGRModel
+  feature: v1
+  features: {use: all}
+  embedding:
+    default_dim: 32
+    namespace_overrides: {"45040": 256}
+  params:
+    history:
+      group: history_group_1
+      action_slot: 45040
+      timestamp_slot: 45042
+      time_gap_slot: 45073
+      padding_side: left
+    candidate_groups:
+      intrinsic: [5000, 5052, 5053, 5054, 5055, 5056, 5057, 5058, 5075, 5077, 5078, 5059, 5073, 5272, 5273, 5274, 5275, 11000, 5004, 5005, 5006, 5060, 5061, 5062, 5085, 5086, 5087, 5088, 5021, 5268, 5269, 5270, 5271, 6270, 6287, 6288, 6289, 6347, 5022, 5023, 5024, 5031, 5032, 5033, 5034, 5036]
+      cross: [9007, 9009, 9010, 9011, 9016, 43051, 43052, 43054, 43055, 43056, 43057, 43058, 9028, 9029, 9044, 9045, 9046, 9048, 9049, 9072, 9073, 43053, 8063, 8085, 8037, 8000, 8001, 8002, 8003, 8004, 8005, 8007, 8008, 8009, 8010, 8023, 8034, 8035, 8039, 8056, 8057, 8058, 8059, 8060, 8061, 8115, 8127, 8131, 8132, 8196, 8192, 8193, 8195, 7090, 7091, 7092, 7097, 7098, 7099, 7100, 7102]
+    model_dim: 512
+    num_heads: 2
+    value_dim: 256
+    query_key_dim: 256
+    num_blocks: 3
+    output_hidden_dim: 512
+    group_norm_eps: 1.0e-5
+    dropout: 0.0
+    candidate_isolation: true
+    task_names: [click, atc, order]
+    head_hidden_dim: 512
+    head_dropout: 0.0
+    task_weights: {click: 1.0, atc: 1.0, order: 1.0}
+    point_loss_weight: 1.0
+    list_loss_weight: 0.0
+    torchrec:
+      mode: dmp
+      sparse_optimizer: {name: exact_adagrad, lr: 0.01, eps: 1.0e-8, weight_decay: 0.0}
+      storage:
+        default_compute_kernel: fused
+        default_sharding_types: [table_wise]
+        capacity_rules:
+          - min_vocab_size_exclusive: 100000
+            sharding_types: [row_wise]

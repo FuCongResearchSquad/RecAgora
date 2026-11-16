@@ -1,0 +1,13 @@
+training:
+  seed: 20260820
+  num_threads: 1
+  batch_size: 4
+  steps: 3
+  optimizer:
+    name: adamw
+    lr: 0.003
+    weight_decay: 0.01
+  synthetic_data:
+    size: 24
+    list_len: 5
+    history_len: 7

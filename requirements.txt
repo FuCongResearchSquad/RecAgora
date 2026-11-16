@@ -1,0 +1,8 @@
+# need CUDA 12.6+
+torch==2.8.0
+torchrec==1.3.0
+fbgemm-gpu==1.3.0
+PyYAML==6.0.3
+tqdm==4.70.0
+pyarrow==25.0.0
+matplotlib==3.11.1

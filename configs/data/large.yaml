@@ -1,0 +1,36 @@
+config_version: request_data_large_v1
+config_kind: request_data
+feature: features.yaml
+dataset: dataset_large.yaml
+data:
+  format: parquet_stream
+  paths:
+  - /path/to/data
+  list_len: 24
+  request_id_field: request_id
+  user_id_field: null
+  item_id_field: null
+  labels:
+    names:
+    - click
+    - atc
+    - order
+    target: click
+    required: true
+  candidate_metadata:
+  - negative_impression
+  - negative_non_impression
+  - negative_from_rank
+  - negative_from_recall
+  - negative_from_random
+  policies:
+    missing_slot: fail_fast
+    bad_length: fail_fast
+  physical_contract:
+    candidate_count: 24
+  index:
+    progress: true
+  streaming:
+    start_file: null
+    parquet_file_cache_size: 4
+    release_unused_every_batches: 50

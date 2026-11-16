@@ -1,0 +1,33 @@
+config_version: onetrans_lite_demo_action_adamw_v1
+config_kind: model
+data_config: ../../../../configs/data/small.yaml
+training_config: ../../../../configs/train/adamw.yaml
+model:
+  name: onetrans_lite_demo
+  class_path: scripts.recagora_demo.onetrans_lite.onetrans_recagora.model:OneTransLiteRecAgoraModel
+  feature: v1
+  features:
+    use: all
+    exclude: [45042, 45073]
+  embedding:
+    default_dim: 8
+    namespace_overrides:
+      "45040": 256
+  params:
+    model_dim: 32
+    num_heads: 4
+    ffn_dim: 64
+    history_group_name: history_group_1
+    torchrec:
+      mode: dmp
+      sparse_optimizer:
+        name: exact_adagrad
+        lr: 0.01
+        eps: 1.0e-8
+        weight_decay: 0.0
+      storage:
+        default_compute_kernel: fused
+        default_sharding_types: [table_wise]
+        capacity_rules:
+          - min_vocab_size_exclusive: 100000
+            sharding_types: [row_wise]

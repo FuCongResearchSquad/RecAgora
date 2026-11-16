@@ -1,0 +1,2099 @@
+config_version: shopee_search_feature_v1
+config_kind: feature
+version: v1
+defaults:
+  list_len: 24
+  history_len: 200
+  missing_slot_policy: fail_fast
+  bad_length_policy: fail_fast
+ids:
+  request_id:
+    dtype: int64
+  user_id:
+    dtype: int64
+  item_id:
+    dtype: int64
+    candidate_count: 24
+tasks:
+  labels:
+  - name: click
+    dtype: float32
+  - name: atc
+    dtype: float32
+  - name: order
+    dtype: float32
+  target: click
+views:
+  query: {}
+  candidate:
+    candidate_count: 24
+  histories:
+    history_group_1:
+      max_length: 200
+      event_order: oldest_to_newest
+      truncate_side: tail
+      padding_side: model_configured
+      length_anchor_slot_id: 45041
+features:
+- slot_id: 5000
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5004
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5005
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5006
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5022
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5023
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5024
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5031
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5032
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5033
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5034
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5036
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5052
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5056
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5057
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5060
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5061
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5077
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5078
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5271
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5053
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 8063
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5054
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5059
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 9011
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 11000
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 8037
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5075
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 8085
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 9028
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 9029
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 9044
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 9048
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 9049
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 9072
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 9073
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5268
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5269
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5270
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5272
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5273
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5274
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5275
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5021
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5055
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5058
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5062
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 9007
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 9009
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 9010
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 9016
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 7090
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 7091
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 7092
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 8000
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 8001
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 8002
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 8003
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 8004
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 8005
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 8007
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 8008
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 8009
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 8010
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 8023
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 8034
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 8035
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 8039
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 8056
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 8057
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 8058
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 8059
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 8060
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 8061
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5073
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5085
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5086
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5087
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 5088
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 7097
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 7098
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 7099
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 7100
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 7102
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 9045
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 9046
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 8115
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 8127
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 8131
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 8132
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 6270
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 6287
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 6288
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 6289
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 8196
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 8192
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 8193
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 8195
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 6347
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 43051
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 43052
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 43053
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 43054
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 43055
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 43056
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 43057
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 43058
+  view: candidate
+  role: item
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - candidate
+    - lookup_dim
+    candidate_count: 24
+- slot_id: 45041
+  view: history
+  role: sequence
+  representation: sparse_id
+  encoding: embedding
+  reduction: none
+  shape:
+    layout: jagged
+    axes:
+    - batch
+    - history
+    - lookup_dim
+    max_length: 200
+  history_group: history_group_1
+- slot_id: 45043
+  view: history
+  role: sequence
+  representation: sparse_id
+  encoding: embedding
+  reduction: none
+  shape:
+    layout: jagged
+    axes:
+    - batch
+    - history
+    - lookup_dim
+    max_length: 200
+  history_group: history_group_1
+- slot_id: 45044
+  view: history
+  role: sequence
+  representation: sparse_id
+  encoding: embedding
+  reduction: none
+  shape:
+    layout: jagged
+    axes:
+    - batch
+    - history
+    - lookup_dim
+    max_length: 200
+  history_group: history_group_1
+- slot_id: 45045
+  view: history
+  role: sequence
+  representation: sparse_id
+  encoding: embedding
+  reduction: none
+  shape:
+    layout: jagged
+    axes:
+    - batch
+    - history
+    - lookup_dim
+    max_length: 200
+  history_group: history_group_1
+- slot_id: 45046
+  view: history
+  role: sequence
+  representation: sparse_id
+  encoding: embedding
+  reduction: none
+  shape:
+    layout: jagged
+    axes:
+    - batch
+    - history
+    - lookup_dim
+    max_length: 200
+  history_group: history_group_1
+- slot_id: 45047
+  view: history
+  role: sequence
+  representation: sparse_id
+  encoding: embedding
+  reduction: none
+  shape:
+    layout: jagged
+    axes:
+    - batch
+    - history
+    - lookup_dim
+    max_length: 200
+  history_group: history_group_1
+- slot_id: 45048
+  view: history
+  role: sequence
+  representation: sparse_id
+  encoding: embedding
+  reduction: none
+  shape:
+    layout: jagged
+    axes:
+    - batch
+    - history
+    - lookup_dim
+    max_length: 200
+  history_group: history_group_1
+- slot_id: 45049
+  view: history
+  role: sequence
+  representation: sparse_id
+  encoding: embedding
+  reduction: none
+  shape:
+    layout: jagged
+    axes:
+    - batch
+    - history
+    - lookup_dim
+    max_length: 200
+  history_group: history_group_1
+- slot_id: 45051
+  view: history
+  role: sequence
+  representation: sparse_id
+  encoding: embedding
+  reduction: none
+  shape:
+    layout: jagged
+    axes:
+    - batch
+    - history
+    - lookup_dim
+    max_length: 200
+  history_group: history_group_1
+- slot_id: 45075
+  view: history
+  role: sequence
+  representation: sparse_id
+  encoding: embedding
+  reduction: none
+  shape:
+    layout: jagged
+    axes:
+    - batch
+    - history
+    - lookup_dim
+    max_length: 200
+  history_group: history_group_1
+- slot_id: 45054
+  view: history
+  role: sequence
+  representation: sparse_id
+  encoding: embedding
+  reduction: none
+  shape:
+    layout: jagged
+    axes:
+    - batch
+    - history
+    - lookup_dim
+    max_length: 200
+  history_group: history_group_1
+- slot_id: 45055
+  view: history
+  role: sequence
+  representation: sparse_id
+  encoding: embedding
+  reduction: none
+  shape:
+    layout: jagged
+    axes:
+    - batch
+    - history
+    - lookup_dim
+    max_length: 200
+  history_group: history_group_1
+- slot_id: 45056
+  view: history
+  role: sequence
+  representation: sparse_id
+  encoding: embedding
+  reduction: none
+  shape:
+    layout: jagged
+    axes:
+    - batch
+    - history
+    - lookup_dim
+    max_length: 200
+  history_group: history_group_1
+- slot_id: 45057
+  view: history
+  role: sequence
+  representation: sparse_id
+  encoding: embedding
+  reduction: none
+  shape:
+    layout: jagged
+    axes:
+    - batch
+    - history
+    - lookup_dim
+    max_length: 200
+  history_group: history_group_1
+- slot_id: 45058
+  view: history
+  role: sequence
+  representation: sparse_id
+  encoding: embedding
+  reduction: none
+  shape:
+    layout: jagged
+    axes:
+    - batch
+    - history
+    - lookup_dim
+    max_length: 200
+  history_group: history_group_1
+- slot_id: 45059
+  view: history
+  role: sequence
+  representation: sparse_id
+  encoding: embedding
+  reduction: none
+  shape:
+    layout: jagged
+    axes:
+    - batch
+    - history
+    - lookup_dim
+    max_length: 200
+  history_group: history_group_1
+- slot_id: 45060
+  view: history
+  role: sequence
+  representation: sparse_id
+  encoding: embedding
+  reduction: none
+  shape:
+    layout: jagged
+    axes:
+    - batch
+    - history
+    - lookup_dim
+    max_length: 200
+  history_group: history_group_1
+- slot_id: 45061
+  view: history
+  role: sequence
+  representation: sparse_id
+  encoding: embedding
+  reduction: none
+  shape:
+    layout: jagged
+    axes:
+    - batch
+    - history
+    - lookup_dim
+    max_length: 200
+  history_group: history_group_1
+- slot_id: 45062
+  view: history
+  role: sequence
+  representation: sparse_id
+  encoding: embedding
+  reduction: none
+  shape:
+    layout: jagged
+    axes:
+    - batch
+    - history
+    - lookup_dim
+    max_length: 200
+  history_group: history_group_1
+- slot_id: 45063
+  view: history
+  role: sequence
+  representation: sparse_id
+  encoding: embedding
+  reduction: none
+  shape:
+    layout: jagged
+    axes:
+    - batch
+    - history
+    - lookup_dim
+    max_length: 200
+  history_group: history_group_1
+- slot_id: 45064
+  view: history
+  role: sequence
+  representation: sparse_id
+  encoding: embedding
+  reduction: none
+  shape:
+    layout: jagged
+    axes:
+    - batch
+    - history
+    - lookup_dim
+    max_length: 200
+  history_group: history_group_1
+- slot_id: 45066
+  view: history
+  role: sequence
+  representation: sparse_id
+  encoding: embedding
+  reduction: none
+  shape:
+    layout: jagged
+    axes:
+    - batch
+    - history
+    - lookup_dim
+    max_length: 200
+  history_group: history_group_1
+- slot_id: 45067
+  view: history
+  role: sequence
+  representation: sparse_id
+  encoding: embedding
+  reduction: none
+  shape:
+    layout: jagged
+    axes:
+    - batch
+    - history
+    - lookup_dim
+    max_length: 200
+  history_group: history_group_1
+- slot_id: 45068
+  view: history
+  role: sequence
+  representation: sparse_id
+  encoding: embedding
+  reduction: none
+  shape:
+    layout: jagged
+    axes:
+    - batch
+    - history
+    - lookup_dim
+    max_length: 200
+  history_group: history_group_1
+- slot_id: 45069
+  view: history
+  role: sequence
+  representation: sparse_id
+  encoding: embedding
+  reduction: none
+  shape:
+    layout: jagged
+    axes:
+    - batch
+    - history
+    - lookup_dim
+    max_length: 200
+  history_group: history_group_1
+- slot_id: 45070
+  view: history
+  role: sequence
+  representation: sparse_id
+  encoding: embedding
+  reduction: none
+  shape:
+    layout: jagged
+    axes:
+    - batch
+    - history
+    - lookup_dim
+    max_length: 200
+  history_group: history_group_1
+- slot_id: 45072
+  view: history
+  role: sequence
+  representation: sparse_id
+  encoding: embedding
+  reduction: none
+  shape:
+    layout: jagged
+    axes:
+    - batch
+    - history
+    - lookup_dim
+    max_length: 200
+  history_group: history_group_1
+- slot_id: 45040
+  view: history
+  role: sequence
+  representation: sparse_id
+  encoding: embedding
+  reduction: none
+  shape:
+    layout: jagged
+    axes:
+    - batch
+    - history
+    - lookup_dim
+    max_length: 200
+  history_group: history_group_1
+- slot_id: 45073
+  view: history
+  role: sequence
+  representation: time
+  encoding: direct
+  reduction: none
+  shape:
+    layout: aligned_sequence
+    axes:
+    - batch
+    - history
+    max_length: 200
+  history_group: history_group_1
+- slot_id: 3001
+  view: query
+  role: request
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - lookup_dim
+- slot_id: 3086
+  view: query
+  role: request
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - lookup_dim
+- slot_id: 3046
+  view: query
+  role: request
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - lookup_dim
+- slot_id: 3062
+  view: query
+  role: request
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - lookup_dim
+- slot_id: 3063
+  view: query
+  role: request
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - lookup_dim
+- slot_id: 3069
+  view: query
+  role: request
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - lookup_dim
+- slot_id: 3070
+  view: query
+  role: request
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - lookup_dim
+- slot_id: 3071
+  view: query
+  role: request
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - lookup_dim
+- slot_id: 3072
+  view: query
+  role: request
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - lookup_dim
+- slot_id: 3073
+  view: query
+  role: request
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - lookup_dim
+- slot_id: 3074
+  view: query
+  role: request
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - lookup_dim
+- slot_id: 3075
+  view: query
+  role: request
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - lookup_dim
+- slot_id: 3077
+  view: query
+  role: request
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - lookup_dim
+- slot_id: 3080
+  view: query
+  role: request
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - lookup_dim
+- slot_id: 3087
+  view: query
+  role: request
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - lookup_dim
+- slot_id: 3088
+  view: query
+  role: request
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - lookup_dim
+- slot_id: 3089
+  view: query
+  role: request
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - lookup_dim
+- slot_id: 3090
+  view: query
+  role: request
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - lookup_dim
+- slot_id: 3091
+  view: query
+  role: request
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - lookup_dim
+- slot_id: 3000
+  view: query
+  role: request
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - lookup_dim
+- slot_id: 3002
+  view: query
+  role: request
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - lookup_dim
+- slot_id: 3096
+  view: query
+  role: request
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - lookup_dim
+- slot_id: 3100
+  view: query
+  role: request
+  representation: sparse_id
+  encoding: embedding
+  reduction: mean
+  shape:
+    layout: fixed
+    axes:
+    - batch
+    - lookup_dim
+- slot_id: 45042
+  view: history
+  role: sequence
+  representation: time
+  encoding: direct
+  reduction: none
+  shape:
+    layout: aligned_sequence
+    axes:
+    - batch
+    - history
+    max_length: 200
+  history_group: history_group_1

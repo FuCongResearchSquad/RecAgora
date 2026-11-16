@@ -1,0 +1,62 @@
+config_version: training_action_adamw_lr1e4_v1
+config_kind: training
+train:
+  batch_size: 128
+  num_workers: 8
+  pin_memory: true
+  persistent_workers: true
+  lr: 0.0001
+  optimizer:
+    name: adamw
+    weight_decay: 0.01
+    params:
+      betas: [0.9, 0.999]
+      eps: 1.0e-8
+  grad_clip_norm: 1.0
+  epochs: 1
+  max_steps: null
+  seed: 2026
+  device: cuda
+  amp: false
+  negative_mask_fields: []
+  output_dir: ../results/default
+  checkpoint_every_steps: 5000
+  checkpoint_max_to_keep: 2
+  progress_every_steps: 10
+  global_metrics:
+    enabled: true
+    every_steps: 10
+  rank_diagnostics:
+    enabled: false
+    every_steps: 500
+  timing_trace:
+    enabled: false
+    rank: 0
+    every_steps: 100
+    distributed_sync: false
+    resolve_delay_steps: 2
+  communication_trace:
+    enabled: false
+    rank: 0
+    every_steps: 500
+    active_steps: 1
+    distributed_sync: false
+    export_chrome_trace: false
+  categorical_prepack_preserve_sources: []
+  resume_from: null
+  resume:
+    world_size_policy: strict
+  init_from: null
+eval:
+  negative_mask_fields: []
+  checkpoint_path: null
+  output_dir: null
+  paths: null
+  batch_size: 128
+  num_workers: 8
+  pin_memory: true
+  persistent_workers: true
+  device: cuda
+  amp: false
+  max_batches: null
+  global_auc_workers: null

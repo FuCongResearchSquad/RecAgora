@@ -1,0 +1,41 @@
+config_version: dlrm_public_v3_mlp_head_native160_action_adamw
+config_kind: model
+data_config: ../../data/small.yaml
+training_config: ../../../configs/train/adamw.yaml
+model:
+  name: dlrm
+  class_path: models.dlrm.model:DLRMModel
+  feature: v1
+  features:
+    use: all
+    exclude: [45042, 45073]
+  embedding:
+    default_dim: 32
+    namespace_overrides: {"45040": 256}
+  params:
+    interaction: {include_self: false}
+    action:
+      slot_id: 45040
+      adapter: linear
+      input_dim: 256
+      output_dim: 32
+      reduction: segment_mean
+      bias: false
+    top_hidden_units: [1024, 512, 128]
+    activation: relu
+    dropout: 0.0
+    head_type: mlp
+    head_hidden_dim: 128
+    head_dropout: 0.0
+    history_group_name: history_group_1
+    output_label_names: [click, atc, order]
+    loss_weights: {click: 1.0, atc: 1.0, order: 1.0}
+    torchrec:
+      mode: dmp
+      sparse_optimizer: {name: exact_adagrad, lr: 0.01, eps: 1.0e-8, weight_decay: 0.0}
+      storage:
+        default_compute_kernel: fused
+        default_sharding_types: [table_wise]
+        capacity_rules:
+          - min_vocab_size_exclusive: 100000
+            sharding_types: [row_wise]

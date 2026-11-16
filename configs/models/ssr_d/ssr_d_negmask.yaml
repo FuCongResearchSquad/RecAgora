@@ -1,0 +1,43 @@
+config_version: ssr_d_faithful_core_gr_v1_dev_native160_negmask_adamw
+config_kind: model
+data_config: ../../data/small.yaml
+training_config: ../../../configs/train/adamw_negmask.yaml
+model:
+  name: ssr_d
+  class_path: models.ssr_d.model:SSRDModel
+  feature: v1
+  features:
+    use: all
+    exclude: [45042, 45073]
+  embedding:
+    default_dim: 32
+    namespace_overrides: {"45040": 256}
+  params:
+    history_group_name: history_group_1
+    history_attention_dim: 64
+    history_padding_side: right
+    num_views: 4
+    filter_dim: 192
+    view_dim: 96
+    num_layers: 2
+    ics_iterations: 5
+    alpha_init: 0.0
+    scale_init: 1.0
+    layer_norm_eps: 1.0e-6
+    head_hidden_dim: 96
+    head_dropout: 0.0
+    output_label_names: [click, atc, order]
+    loss_weights: {click: 1.0, atc: 1.0, order: 1.0}
+    torchrec:
+      mode: dmp
+      sparse_optimizer:
+        name: exact_adagrad
+        lr: 0.01
+        eps: 1.0e-8
+        weight_decay: 0.0
+      storage:
+        default_compute_kernel: fused
+        default_sharding_types: [table_wise]
+        capacity_rules:
+          - min_vocab_size_exclusive: 100000
+            sharding_types: [row_wise]

@@ -1,0 +1,60 @@
+config_version: tokenmixer_base_native160_action_adamw
+config_kind: model
+data_config: ../../data/small.yaml
+training_config: ../../../configs/train/adamw.yaml
+model:
+  name: tokenmixer
+  class_path: models.tokenmixer.model:TokenMixerModel
+  feature: v1
+  features:
+    use: all
+    exclude: [45042, 45073]
+  embedding:
+    default_dim: 32
+    namespace_overrides: {"45040": 256}
+  params:
+    token_dim: 256
+    num_layers: 3
+    expansion_ratio: 2
+    token_order:
+    - target_identity_content
+    - target_value_quality
+    - target_search_funnel
+    - target_query_relevance
+    - target_user_behavior
+    - target_personalization
+    - query_token
+    - user_seq
+    input_groups:
+      target_identity_content: [5000, 5052, 5053, 5054, 5055, 5056, 5057, 5058, 5075, 5077, 5078, 5059, 5073, 5272, 5273, 5274, 5275, 11000]
+      target_value_quality: [5004, 5005, 5006, 5060, 5061, 5062, 5085, 5086, 5087, 5088, 5021, 5268, 5269, 5270, 5271, 6270, 6287, 6288, 6289, 6347]
+      target_search_funnel: [5022, 5023, 5024, 5031, 5032, 5033, 5034, 5036, 9007, 9009, 9010, 9011, 9016, 43051, 43052, 43054, 43055, 43056, 43057, 43058]
+      target_query_relevance: [9028, 9029, 9044, 9045, 9046, 9048, 9049, 9072, 9073, 43053]
+      target_user_behavior: [8063, 8085, 8037, 8000, 8001, 8002, 8003, 8004, 8005, 8007, 8008, 8009, 8010, 8023, 8034, 8035, 8039, 8056, 8057, 8058, 8059, 8060, 8061, 8115, 8127, 8131, 8132, 8196, 8192, 8193, 8195]
+      target_personalization: [7090, 7091, 7092, 7097, 7098, 7099, 7100, 7102]
+      query_token: [3001, 3086, 3046, 3062, 3063, 3069, 3070, 3071, 3072, 3073, 3074, 3075, 3077, 3080, 3087, 3088, 3089, 3090, 3091, 3000, 3002, 3096, 3100]
+      user_seq: [45041, 45043, 45044, 45045, 45046, 45047, 45048, 45049, 45051, 45075, 45054, 45055, 45056, 45057, 45058, 45059, 45060, 45061, 45062, 45063, 45064, 45066, 45067, 45068, 45069, 45070, 45072, 45040]
+    query_group_name: query_token
+    history_group_name: history_group_1
+    history_token_name: user_seq
+    dropout: 0.0
+    rms_norm_eps: 1.0e-6
+    activation_checkpointing: true
+    candidate_isolation: true
+    head_hidden_dim: 256
+    head_dropout: 0.0
+    output_label_names: [click, atc, order]
+    loss_weights: {click: 1.0, atc: 1.0, order: 1.0}
+    torchrec:
+      mode: dmp
+      sparse_optimizer:
+        name: exact_adagrad
+        lr: 0.01
+        eps: 1.0e-8
+        weight_decay: 0.0
+      storage:
+        default_compute_kernel: fused
+        default_sharding_types: [table_wise]
+        capacity_rules:
+          - min_vocab_size_exclusive: 100000
+            sharding_types: [row_wise]

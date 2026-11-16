@@ -1,0 +1,63 @@
+config_version: hiformer_fieldwise_native160_adamw_v1_negmask_adamw
+config_kind: model
+data_config: ../../data/small.yaml
+training_config: ../../../configs/train/adamw_negmask.yaml
+model:
+  name: hiformer
+  class_path: models.hiformer.model:HiFormerModel
+  feature: v1
+  features:
+    use: all
+    exclude: [45042, 45073]
+  embedding:
+    default_dim: 32
+    namespace_overrides: {"45040": 256}
+  params:
+    history_group_name: history_group_1
+    history_reduction: segment_mean
+    action:
+      slot_id: 45040
+      adapter: linear
+      input_dim: 256
+      output_dim: 32
+      reduction: segment_mean
+      bias: false
+    tokenization:
+      mode: fieldwise
+      input_dim: 32
+      token_dim: 64
+      activation: silu
+      norm: fieldwise_layer_norm
+      norm_eps: 1.0e-6
+    interaction:
+      type: flattened_low_rank_composite_attention
+      num_layers: 2
+      num_heads: 2
+      qkv_rank: 32
+      expansion_factor: 2
+      attention_dropout: 0.0
+      ffn_dropout: 0.0
+      norm_eps: 1.0e-6
+      attention_output_projection: false
+      last_layer_task_pruning: false
+      activation_checkpointing: true
+    candidate_isolation: true
+    candidate_chunk_size: 1
+    task_names: [click, atc, order]
+    tower_hidden_units: [128, 64]
+    tower_activation: silu
+    tower_dropout: 0.0
+    task_weights: {click: 1.0, atc: 1.0, order: 1.0}
+    torchrec:
+      mode: dmp
+      sparse_optimizer:
+        name: exact_adagrad
+        lr: 0.01
+        eps: 1.0e-8
+        weight_decay: 0.0
+      storage:
+        default_compute_kernel: fused
+        default_sharding_types: [table_wise]
+        capacity_rules:
+        - min_vocab_size_exclusive: 100000
+          sharding_types: [row_wise]

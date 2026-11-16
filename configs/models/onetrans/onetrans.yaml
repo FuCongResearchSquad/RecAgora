@@ -1,0 +1,62 @@
+config_version: onetrans_v1_3_a12_d8_nomask_adamw
+config_kind: model
+data_config: ../../data/small.yaml
+training_config: ../../../configs/train/adamw.yaml
+model:
+  name: onetrans
+  class_path: models.onetrans.model:OneTransModel
+  feature: v1
+  features: {use: all}
+  embedding:
+    default_dim: 32
+    namespace_overrides: {"45040": 256}
+  params:
+    history:
+      group: history_group_1
+      sequence_slots: [45041, 45043, 45040, 45044, 45045, 45046, 45047, 45048, 45049, 45051, 45075, 45054, 45055, 45056, 45057, 45058, 45059, 45060, 45061, 45062, 45063, 45064, 45066, 45067, 45068, 45069, 45070, 45072]
+      length_slot: 45041
+      action_slot: 45040
+      timestamp_slot: 45042
+      time_gap_slot: 45073
+      padding_side: left
+      time_gap_transform: log1p
+      time_gap_dim: 16
+      runtime_validation: shapes_only
+    tokenizer:
+      type: auto_split
+      token_count: 12
+      token_order: [query_semantic_entity, query_statistics, target_identity_taxonomy, target_content_context, target_commerce_quality, target_price_status, target_item_search_funnel, target_query_item_funnel, target_query_relevance, target_behavior_recency, target_behavior_counts, target_personalization]
+      groups:
+        query_semantic_entity: [3001, 3086, 3087, 3088, 3089, 3090, 3091, 3000, 3002, 3096, 3100]
+        query_statistics: [3046, 3062, 3063, 3069, 3070, 3071, 3072, 3073, 3074, 3075, 3077, 3080]
+        target_identity_taxonomy: [5000, 5052, 5053, 5054, 5055, 5056, 5057, 5058, 5075, 5077, 5078, 5272]
+        target_content_context: [5059, 5073, 5273, 5274, 5275, 11000]
+        target_commerce_quality: [5004, 5005, 5006, 5021, 5268, 5269, 5270, 5271]
+        target_price_status: [5060, 5061, 5062, 5085, 5086, 5087, 5088, 6270, 6287, 6288, 6289, 6347]
+        target_item_search_funnel: [5022, 5023, 5024, 5031, 5032, 5033, 5034, 5036]
+        target_query_item_funnel: [9007, 9009, 9010, 9011, 9016, 43051, 43052, 43054, 43055, 43056, 43057, 43058]
+        target_query_relevance: [9028, 9029, 9044, 9045, 9046, 9048, 9049, 9072, 9073, 43053]
+        target_behavior_recency: [8000, 8001, 8002, 8003, 8004, 8005, 8007, 8008, 8009, 8010, 8059, 8060, 8061, 8196]
+        target_behavior_counts: [8063, 8085, 8037, 8023, 8034, 8035, 8039, 8056, 8057, 8058, 8115, 8127, 8131, 8132, 8192, 8193, 8195]
+        target_personalization: [7090, 7091, 7092, 7097, 7098, 7099, 7100, 7102]
+    encoder:
+      model_dim: 256
+      num_heads: 4
+      ffn_dim: 512
+      sequence_keep_per_layer: [176, 152, 128, 104, 80, 56, 32, 0]
+      dropout: 0.0
+      rms_norm_eps: 1.0e-6
+    readout: {type: task_projection}
+    head_hidden_dim: 256
+    head_dropout: 0.0
+    output_label_names: [click, atc, order]
+    loss_weights: {click: 1.0, atc: 1.0, order: 1.0}
+    torchrec:
+      mode: dmp
+      sparse_optimizer: {name: exact_adagrad, lr: 0.01, eps: 1.0e-8, weight_decay: 0.0}
+      storage:
+        default_compute_kernel: fused
+        default_sharding_types: [table_wise]
+        capacity_rules:
+          - min_vocab_size_exclusive: 100000
+            sharding_types: [row_wise]

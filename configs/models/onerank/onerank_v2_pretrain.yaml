@@ -1,0 +1,83 @@
+config_version: onerank_v2_pretrain_3task_action_adamw
+config_kind: model
+data_config: ../../data/small.yaml
+training_config: ../../../configs/train/adamw.yaml
+model:
+  name: onerankv2
+  class_path: models.onerank.model:OneRankModel
+  feature: v1
+  features:
+    use: all
+    exclude: [45042]
+  embedding:
+    default_dim: 40
+    namespace_overrides: {"45040": 256}
+  params:
+    input_groups:
+      history_group: history_group_1
+      history_slots: [45041, 45043, 45044, 45045, 45046, 45047, 45048, 45049, 45051, 45075, 45054, 45055, 45056, 45057, 45058, 45059, 45060, 45061, 45062, 45063, 45064, 45066, 45067, 45068, 45069, 45070, 45072]
+      history_action_slot: 45040
+      history_timestamp_slot: 45073
+      candidate_slots: [5000, 5004, 5005, 5006, 5022, 5023, 5024, 5031, 5032, 5033, 5034, 5036, 5052, 5056, 5057, 5060, 5061, 5077, 5078, 5271, 5053, 8063, 5054, 5059, 9011, 11000, 8037, 5075, 8085, 9028, 9029, 9044, 9048, 9049, 9072, 9073, 5268, 5269, 5270, 5272, 5273, 5274, 5275, 5021, 5055, 5058, 5062, 9007, 9009, 9010, 9016, 7090, 7091, 7092, 8000, 8001, 8002, 8003, 8004, 8005, 8007, 8008, 8009, 8010, 8023, 8034, 8035, 8039, 8056, 8057, 8058, 8059, 8060, 8061, 5073, 5085, 5086, 5087, 5088, 7097, 7098, 7099, 7100, 7102, 9045, 9046, 8115, 8127, 8131, 8132, 6270, 6287, 6288, 6289, 8196, 8192, 8193, 8195, 6347, 43051, 43052, 43053, 43054, 43055, 43056, 43057, 43058]
+      query_slots: [3001, 3086, 3046, 3062, 3063, 3069, 3070, 3071, 3072, 3073, 3074, 3075, 3077, 3080, 3087, 3088, 3089, 3090, 3091, 3000, 3002, 3096, 3100]
+    slot_encoder:
+      base_dim: 32
+      residual_dim: 8
+      residual_projection: linear
+      detach_candidate_base: true
+      detach_query_base: true
+      action_adapter: identity
+      layer_norm_eps: 1.0e-3
+    history_encoder:
+      type: time_rope_causal
+      layers: 4
+      position: time_rope
+      timestamp_invalid_value: 4319.0
+      time_rope_min_wavelength: 1.0
+      time_rope_max_wavelength: 1008.0
+      time_head_scales: [1.0, 1.0]
+    candidate_context:
+      type: perceiver
+      layers: 1
+      detach_history: true
+    view_encoder:
+      type: self_attention
+      layers: 1
+    decoder:
+      type: shared_lora_cross_attention
+      layers: 4
+      lora_rank: 8
+    task_interaction:
+      type: none
+    objectives:
+      mode: next_event
+      ranking:
+        tasks: [click, atc, order]
+        point_weight: 1.0
+        list_weight: 1.0
+        lora_activation_weight: 0.01
+        task_weights: {}
+      next_event:
+        temperature_init: 0.2
+        item_slot_index: 0
+        category_slot_index: 6
+        weights: {item: 0.1, category: 0.5}
+    initialization:
+      embedding_uniform_range: 0.03
+      require_init_from: false
+    model_dim: 256
+    num_heads: 4
+    ffn_kind: swiglu
+    ffn_expansion: 4.0
+    use_qk_norm: true
+    rms_norm_eps: 1.0e-5
+    score_temperature_init: 0.2
+    torchrec:
+      mode: dmp
+      sparse_optimizer: {name: exact_adagrad, lr: 0.01, eps: 1.0e-8, weight_decay: 0.0}
+      storage:
+        default_compute_kernel: fused
+        default_sharding_types: [table_wise]
+        capacity_rules:
+          - min_vocab_size_exclusive: 100000
+            sharding_types: [row_wise]

@@ -1,0 +1,20 @@
+{
+  "description": "Public Small toy: one source Parquet per partition, sampled by row",
+  "denominator": 20,
+  "partitions": {
+    "DAY01": {
+      "source": "dt=DAY01/compact-00003.parquet",
+      "output": "dt=DAY01/compact-00003.parquet",
+      "source_rows": 29080,
+      "sample_rows": 1454,
+      "seed": 2027
+    },
+    "DAY02": {
+      "source": "dt=DAY02/compact-00008.parquet",
+      "output": "dt=DAY02/compact-00008.parquet",
+      "source_rows": 27805,
+      "sample_rows": 1391,
+      "seed": 2028
+    }
+  }
+}

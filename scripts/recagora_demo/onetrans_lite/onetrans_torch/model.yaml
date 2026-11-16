@@ -1,0 +1,8 @@
+model:
+  query_dim: 6
+  candidate_dim: 8
+  history_dim: 8
+  model_dim: 32
+  num_heads: 4
+  ffn_dim: 64
+  num_tasks: 3
